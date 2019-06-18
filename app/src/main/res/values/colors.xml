@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#222222</color>
+
+
+    <color name="colorGray">#222222</color>
+    <color name="colorGray1">#d5d5d5</color>
+    <color name="colorGray2">#939393</color>
+    <color name="colorGray3">#888888</color>
+    <color name="colorGray4">#d4d4d4</color>
+    <color name="colorGray5">#8f8e93</color>
+    <color name="colorGray6">#828282</color>
+    <color name="colorGray7">#c7c7c7</color>
+
+
+
+    <color name="colorBlack">#000000</color>
+    <color name="colorBlack1">#000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorWhite1">#fafafa</color>
+    <color name="colorWhite2">#f2f2f4</color>
+
+    <color name="colorOrange">#fc5932</color>
+
+    <!-- dots inactive colors -->
+    <color name="intro_bullet_inactive">#59FFFFFF</color>
+    <!-- dots active colors -->
+    <color name="intro_bullet_active">#FFFFFF</color>
+
+    <array name="array_intro_bullet_inactive">
+        <item>@color/intro_bullet_inactive</item>
+        <item>@color/intro_bullet_inactive</item>
+        <item>@color/intro_bullet_inactive</item>
+        <item>@color/intro_bullet_inactive</item>
+    </array>
+    <array name="array_intro_bullet_active">
+        <item>@color/intro_bullet_active</item>
+        <item>@color/intro_bullet_active</item>
+        <item>@color/intro_bullet_active</item>
+        <item>@color/intro_bullet_active</item>
+    </array>
+</resources>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:id="@+id/cvCountryLayout"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+
+
+        <RelativeLayout
+                android:id="@+id/rl_user_info"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_38sdp">
+
+            <RelativeLayout
+                    android:id="@+id/rl_user_image"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_centerVertical="true">
+
+                <ImageView
+                        android:id="@+id/ivCountryImage"
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:src="@drawable/app_icon"
+                        android:scaleType="fitXY"
+                        android:layout_centerInParent="true" />
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_toRightOf="@+id/rl_user_image"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/tvCountryName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_15sdp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/tamil_sangam"
+                        android:gravity="start"
+                        android:maxLines="1"
+                        android:text="Afganistan"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_12sdp" />
+
+                <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp">
+
+
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <TextView
+                    android:id="@+id/tvCountryCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/tamil_sangam"
+                    android:gravity="start"
+                    android:maxLines="1"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:text="Code"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/colorGray6"
+                    android:textSize="@dimen/_12sdp" />
+
+           <!-- <RadioButton
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:id="@+id/rbSelectCountry"
+                    android:background="@drawable/radio_flat_selector"
+                    android:layout_centerVertical="true"
+                    android:button="@android:color/transparent"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_alignParentRight="true"/>
+       -->
+        </RelativeLayout>
+
+    <View android:layout_width="match_parent"
+          android:layout_height="0.7dp"
+android:background="@color/colorGray7"
+    android:layout_marginStart="@dimen/_15sdp"
+          android:layout_marginLeft="@dimen/_15sdp"/>
+
+</LinearLayout>

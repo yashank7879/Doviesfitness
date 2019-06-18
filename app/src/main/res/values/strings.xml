@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Doviesfitness</string>
+    <!--Intro slider-->
+    <string name="login">LOGIN</string>
+    <string name="sign_up">SIGN UP</string>
+
+    <!--SIGN UP UI-->
+    <string name="create_your_doviesfitness_account">CREATE YOUR DOVIESFITNESS ACCOUNT</string>
+    <string name="sign_up_with_facebook">SIGN UP WITH FACEBOOK</string>
+    <string name="or">OR</string>
+    <string name="full_name">Full Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="country">Country</string>
+    <string name="mm_dd_yyyy">mm/dd/yyyy</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="sign_up_for_emails_to_hear_from_all_latest_from_doviesfitness">Sign up for emails to hear from all
+        latest from Doviesfitness
+    </string>
+    <string name="create_account">create account</string>
+
+
+    <!--signup Validation-->
+    <string name="please_enter_your_full_name">Please enter your full name.</string>
+    <string name="please_enter_email_address">Please enter your email address.</string>
+    <string name="please_enter_valid_email_address">Please enter a valid email address.</string>
+
+    <string name="please_enter_a_password">Please enter a password.</string>
+    <string name="re_enter_password">Re-enter password.</string>
+    <string name="pass_does_not_match_the_confirm_pass">Password does not match the confirm password.</string>
+    <string name="please_select_your_country">Please select your country.</string>
+    <string name="search_country">Search Country</string>
+    <string name="countries">Countries</string>
+    <string name="cancel">Cancel</string>
+
+    <!--Gender selection-->
+    <string name="what_s_your_gender">WHAT\'S YOUR GENDER?</string>
+    <string name="female">FEMALE</string>
+    <string name="male">MALE</string>
+</resources>

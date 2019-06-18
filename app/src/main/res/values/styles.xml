@@ -1,0 +1,240 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <style name="IntroSliderTheme" parent="@android:style/Theme.Holo">
+        <!-- Customize your theme here. -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="FullScreenTheme" parent="@style/Theme.AppCompat.DayNight.DarkActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="WhiteStatusTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimaryDark">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@color/colorWhite</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="SliderTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@android:color/transparent</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <style name="MyCheckBoxStyle" parent="Base.Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorOrange</item>
+        <item name="colorPrimary">@color/colorOrange</item>
+    </style>
+
+    <!--Futura style-->
+    <style name="SmallFutureStyle">
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:fontFamily">@font/futura</item>
+    </style>
+
+    <style name="mediumFutureStyle">
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:fontFamily">@font/futura</item>
+    </style>
+
+    <style name="largeFutureStyle">
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:fontFamily">@font/futura</item>
+    </style>
+
+
+    <!--Futura BOLD style-->
+    <style name="SmallFutureBoldStyle">
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:fontFamily">@font/futura_bold</item>
+    </style>
+
+    <style name="mediumFutureBoldStyle">
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:fontFamily">@font/futura_bold</item>
+    </style>
+
+    <style name="largeFutureBoldStyle">
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:fontFamily">@font/futura_bold</item>
+    </style>
+
+
+    <!--ROBOTO style-->
+    <style name="SmallRobotoStyle">
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:fontFamily">@font/roboto_black_0</item>
+    </style>
+
+    <style name="mediumRobotoStyle">
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:fontFamily">@font/roboto_black_0</item>
+    </style>
+
+    <style name="largeRobotoStyle">
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:fontFamily">@font/roboto_black_0</item>
+    </style>
+
+
+    <!--ROBOTO BOLD style-->
+    <style name="SmallRobotoBoldStyle">
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:fontFamily">@font/roboto_bold_0</item>
+    </style>
+
+    <style name="mediumRobotoBoldStyle">
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:fontFamily">@font/roboto_bold_0</item>
+    </style>
+
+    <style name="largeRobotoBoldStyle">
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:fontFamily">@font/roboto_bold_0</item>
+    </style>
+
+    <!--ROBOTO Italic style-->
+    <style name="SmallRobotoItalicStyle">
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:fontFamily">@font/roboto_italic_0</item>
+    </style>
+
+    <style name="mediumRobotoItalicStyle">
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:fontFamily">@font/roboto_italic_0</item>
+    </style>
+
+    <style name="largeRobotoItalicStyle">
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:fontFamily">@font/roboto_italic_0</item>
+    </style>
+
+    <!--ROBOTO Light Style-->
+    <style name="SmallRobotoLightStyle">
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:fontFamily">@font/roboto_light_0</item>
+    </style>
+
+    <style name="mediumRobotoLightStyle">
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:fontFamily">@font/roboto_light_0</item>
+    </style>
+
+    <style name="largeRobotoLightStyle">
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:fontFamily">@font/roboto_light_0</item>
+    </style>
+
+    <!--ROBOTO Medium Style-->
+    <style name="SmallRobotoMediumStyle">
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:fontFamily">@font/roboto_medium_0</item>
+    </style>
+
+    <style name="mediumRobotoMediumStyle">
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:fontFamily">@font/roboto_medium_0</item>
+    </style>
+
+    <style name="largeRobotoMediumStyle">
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:fontFamily">@font/roboto_medium_0</item>
+    </style>
+
+    <!--ROBOTO Regular Style-->
+    <style name="SmallRobotoRegularStyle">
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:fontFamily">@font/roboto_regular_0</item>
+    </style>
+
+    <style name="mediumRobotoRegularStyle">
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:fontFamily">@font/roboto_regular_0</item>
+    </style>
+
+    <style name="largeRobotoRegularStyle">
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:fontFamily">@font/roboto_regular_0</item>
+    </style>
+
+    <!--TamilSangam Style-->
+    <style name="ExtraSmallTamilSangamStyle">
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="android:fontFamily">@font/tamil_sangam</item>
+    </style>
+    <style name="SmallTamilSangamStyle">
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:fontFamily">@font/tamil_sangam</item>
+    </style>
+
+    <style name="mediumTamilSangamStyle">
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:fontFamily">@font/tamil_sangam</item>
+    </style>
+
+    <style name="largeTamilSangamStyle">
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:fontFamily">@font/tamil_sangam</item>
+    </style>
+
+
+
+    <!--ProductBold Style-->
+    <style name="ExtraProductBoldStyle">
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="android:fontFamily">@font/product_sans_bold</item>
+    </style>
+    <style name="SmallProductBoldStyle">
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:fontFamily">@font/product_sans_bold</item>
+    </style>
+
+    <style name="mediumProductBoldStyle">
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:fontFamily">@font/product_sans_bold</item>
+    </style>
+
+    <style name="largeProductBoldtyle">
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:fontFamily">@font/product_sans_bold</item>
+    </style>
+
+    <!--ProductRegular Style-->
+    <style name="ExtraProductRegularStyle">
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="android:fontFamily">@font/product_sans_regular</item>
+    </style>
+    <style name="SmallProductRegularStyle">
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:fontFamily">@font/product_sans_regular</item>
+    </style>
+
+    <style name="mediumProductRegularStyle">
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:fontFamily">@font/product_sans_regular</item>
+    </style>
+
+    <style name="largeProductRegularStyle">
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:fontFamily">@font/product_sans_regular</item>
+    </style>
+
+
+</resources>

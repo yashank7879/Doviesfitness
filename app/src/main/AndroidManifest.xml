@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.doviesfitness">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <application
+            android:allowBackup="true"
+            android:icon="@drawable/app_icon"
+            android:label="@string/app_name"
+            android:roundIcon="@drawable/app_icon"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
+        <activity android:name=".ui.authentication.signup.HeightAndWeightActivity">
+        </activity>
+        <activity
+                android:name=".ui.authentication.signup.SelectGenderActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/SliderTheme"
+                android:windowSoftInputMode="adjustPan|stateHidden">
+        </activity>
+        <activity
+                android:name=".ui.authentication.signup.SignupActivity"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="adjustPan|stateHidden">
+        </activity>
+        <activity
+                android:name=".ui.authentication.login.LoginActivity"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="adjustPan|stateHidden">
+        </activity>
+        <activity
+                android:name=".SplashScreenActivity"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity"/>
+        <activity
+                android:name=".ui.authentication.IntroSliderActivity"
+                android:theme="@style/SliderTheme">
+        </activity>
+        <activity android:name=".ui.base.BaseActivity"/>
+        <activity
+                android:name=".ui.authentication.signup.CountrySelectionActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/WhiteStatusTheme"
+                android:windowSoftInputMode="adjustPan|stateHidden"/>
+    </application>
+
+</manifest>
