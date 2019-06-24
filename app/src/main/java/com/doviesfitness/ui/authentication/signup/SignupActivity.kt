@@ -1,5 +1,6 @@
 package com.doviesfitness.ui.authentication.signup
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
@@ -22,22 +23,35 @@ import android.app.DatePickerDialog
 import android.os.SystemClock
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
+import android.view.GestureDetector
+import android.view.MotionEvent
 import android.view.WindowManager
-import android.widget.DatePicker
-import android.widget.Toast
+import com.androidnetworking.error.ANError
+import com.androidnetworking.interfaces.JSONObjectRequestListener
+import com.doviesfitness.data.model.SignupInfo
 import com.doviesfitness.utils.Constant
 import com.doviesfitness.utils.Constant.Companion.SECOND_ACTIVITY_REQUEST_CODE
-import kotlinx.android.synthetic.main.activity_country_selection.*
+import com.doviesfitness.utils.Constant.Companion.isNetworkAvailable
+import com.doviesfitness.utils.Constant.Companion.showCustomToast
+import com.doviesfitness.utils.OnSwipeListener
+import org.json.JSONObject
+import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.HashMap
 
 
-class SignupActivity : BaseActivity(), View.OnClickListener {
+class SignupActivity : BaseActivity(), View.OnClickListener, View.OnTouchListener {
+    private lateinit var gestureDetector: GestureDetector
     private var startDateTime = Calendar.getInstance()
     var mDay: Int = 0
     var mMonth: Int = 0
     private var mLastClickTime: Long = 0
     var mYear: Int = 0
+    var myPhoneCountryCode: String = ""
+    var myCountryCode: String = ""
+    var myCountryName: String = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,7 +77,6 @@ class SignupActivity : BaseActivity(), View.OnClickListener {
                 if (!s.toString().isEmpty()) {
                     fullNameValidation(et_fullname)
                 }
-
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -116,7 +129,7 @@ class SignupActivity : BaseActivity(), View.OnClickListener {
         et_confirm_pass.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 if (!s.toString().isEmpty()) {
-                    confirmPassValidation(et_pass,et_confirm_pass)
+                    confirmPassValidation(et_pass, et_confirm_pass)
                 }
 
             }
@@ -131,6 +144,36 @@ class SignupActivity : BaseActivity(), View.OnClickListener {
 
         })
 
+
+        gestureDetector = GestureDetector(this, object : OnSwipeListener() {
+            override fun onSwipe(direction: Direction): Boolean {
+                if (direction == Direction.left) {
+
+                    //showCustomToast(this@SignupActivity, "Left swipe")
+                }
+                if (direction == Direction.right) {
+                    overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
+                    finish()
+                    //showCustomToast(this@SignupActivity, "Right swipe")
+                }
+                if (direction == Direction.down) {
+
+                    //showCustomToast(this@SignupActivity, "Down swipe")
+                }
+                if (direction == Direction.up) {
+
+                    //showCustomToast(this@SignupActivity, "Up swipe")
+                }
+                return true
+            }
+
+        })
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+        gestureDetector.onTouchEvent(event)
+        return true;
     }
 
     /* privacy policy and terms of use of font family underline
@@ -141,7 +184,7 @@ class SignupActivity : BaseActivity(), View.OnClickListener {
         val text1 = SpannableString("By creating an account, you agree to Doviesfitness's ")
 
         builder.append(text1)
-        val privacyPolicy = SpannableString("Privacy policy")
+        val privacyPolicy = SpannableString("Privacy Policy")
 
         privacyPolicy.setSpan(StyleSpan(Typeface.BOLD), 0, privacyPolicy.length, 0)
         privacyPolicy.setSpan(UnderlineSpan(), 0, privacyPolicy.length, 0)
@@ -168,7 +211,8 @@ class SignupActivity : BaseActivity(), View.OnClickListener {
 
             }
         }, 0, terms.length, 0)
-        terms.setSpan(ForegroundColorSpan(ContextCompat.getColor(this, R.color.colorGray3)), 0,
+        terms.setSpan(
+            ForegroundColorSpan(ContextCompat.getColor(this, R.color.colorGray3)), 0,
             terms.length,
             0
         )
@@ -187,6 +231,7 @@ class SignupActivity : BaseActivity(), View.OnClickListener {
         iv_close.setOnClickListener(this)
         ll_dob.setOnClickListener(this)
         main_layout.setOnClickListener(this)
+        main_layout.setOnTouchListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -211,9 +256,8 @@ class SignupActivity : BaseActivity(), View.OnClickListener {
                 openStartDateDialog()
             }
             R.id.main_layout -> {
-                Constant.hideSoftKeyBoard(this,et_email)
+                Constant.hideSoftKeyBoard(this, et_email)
             }
-
         }
     }
 
@@ -229,9 +273,10 @@ class SignupActivity : BaseActivity(), View.OnClickListener {
                 Constant.hideSoftKeyBoard(this, et_email)
 
                 val country_flag = data!!.getIntExtra("country_flag", -1)
-                val myCode = data.getStringExtra("country_code")
-                val myCountryName = data.getStringExtra("country_Name")
-                val country_code = "+$myCode"
+                myPhoneCountryCode = data.getStringExtra("country_phone_code")
+                myCountryCode = data.getStringExtra("country_code")
+                myCountryName = data.getStringExtra("country_Name")
+                val country_code = "+$myPhoneCountryCode"
                 tv_country.text = myCountryName
                 countryValidation()
                 println("*******$country_flag" + "myName")
@@ -281,35 +326,77 @@ class SignupActivity : BaseActivity(), View.OnClickListener {
         emailValidation(et_email)
         countryValidation()
         passValidation(et_pass)
-        confirmPassValidation(et_pass,et_confirm_pass)
+        confirmPassValidation(et_pass, et_confirm_pass)
 
         checkAllValidation()
     }
 
     private fun checkAllValidation() {
-        if(!fullNameValidation(et_fullname)){
+        if (!fullNameValidation(et_fullname)) {
             error_fullname.visibility = View.VISIBLE
-        }else if (!emailValidation(et_email)){
+        } else if (!emailValidation(et_email)) {
             error_email.visibility = View.VISIBLE
 
-        }else if(!countryValidation()){
+        } else if (!countryValidation()) {
             error_country.visibility = View.VISIBLE
 
-        }else if(!passValidation(et_pass)){
+        } else if (!passValidation(et_pass)) {
             error_pass.visibility = View.VISIBLE
 
-        }else if (!confirmPassValidation(et_pass, et_confirm_pass)){
+        } else if (!confirmPassValidation(et_pass, et_confirm_pass)) {
             error_confirm_pass.visibility = View.VISIBLE
 
-        }else {
-            intent = Intent(this, SelectGenderActivity::class.java)
-            startActivity(intent)
-            finish()
+        } else {
+            if (isNetworkAvailable(this, main_layout)) {
+                checkEmailAvailability()
+                btn_create_acc.isEnabled = false
+            }
         }
     }
 
+    private fun checkEmailAvailability() {
+        val param = HashMap<String, String>()
+        param.put("email", et_email.text.toString())
+        getDataManager().checkEmailAvailability(param)?.getAsJSONObject(object : JSONObjectRequestListener {
+            override fun onResponse(response: JSONObject?) {
+                try {
+                    val json: JSONObject? = response?.getJSONObject("data")
+                    if (json!!.get("is_available").equals("1")) {
+                        btn_create_acc.isEnabled = true
+                        val signupInfo = SignupInfo()
+                        signupInfo.setName(et_fullname.text.toString().trim())
+                        signupInfo.setEmail(et_email.text.toString().trim())
+                        signupInfo.setDob(tv_dob.text.toString().trim())
+                        signupInfo.setCountry_id(myCountryCode)
+                        signupInfo.setIsd_code(myPhoneCountryCode)
+                        signupInfo.setPassword(et_confirm_pass.text.toString().trim())
 
-    private fun fullNameValidation(et_fullname : EditText): Boolean{
+                        val intent = Intent(this@SignupActivity, SelectGenderActivity::class.java)
+                        intent.putExtra("SignUpInfo", signupInfo)
+                        startActivity(intent)
+                        finish()
+                        error_email.visibility = View.GONE
+                    } else {
+                        btn_create_acc.isEnabled = true
+                        error_email.visibility = View.VISIBLE
+                        error_email.text = json.getString("message")
+                    }
+                } catch (exce: Exception) {
+                    btn_create_acc.isEnabled = true
+                    showCustomToast(this@SignupActivity, getString(R.string.something_wrong))
+                }
+            }
+
+            override fun onError(anError: ANError?) {
+                btn_create_acc.isEnabled = true
+                showCustomToast(this@SignupActivity, getString(R.string.something_wrong))
+                Log.e("Error", "" + anError?.localizedMessage)
+            }
+        })
+    }
+
+
+    private fun fullNameValidation(et_fullname: EditText): Boolean {
         if (et_fullname.text.trim().toString().isEmpty()) {
             error_fullname.visibility = View.VISIBLE
             error_fullname.text = getString(R.string.please_enter_your_full_name)
@@ -367,7 +454,7 @@ class SignupActivity : BaseActivity(), View.OnClickListener {
 
     }
 
-    private fun countryValidation(): Boolean{
+    private fun countryValidation(): Boolean {
         if (tv_country.text.toString().equals("Country")) {
             error_country.visibility = View.VISIBLE
             return false

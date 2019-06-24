@@ -16,8 +16,11 @@
     </style>
 
     <style name="FullScreenTheme" parent="@style/Theme.AppCompat.DayNight.DarkActionBar">
-        <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowFullscreen">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
     </style>
 
     <style name="WhiteStatusTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -37,10 +40,22 @@
         <item name="android:windowTranslucentStatus">true</item>
     </style>
 
-    <style name="MyCheckBoxStyle" parent="Base.Widget.AppCompat.CompoundButton.CheckBox">
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorPrimaryDark">@color/colorOrange</item>
-        <item name="colorPrimary">@color/colorOrange</item>
+
+    <style name="CustomBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheetStyle</item>
+    </style>
+
+    <style name="CustomBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+
+
+    <style name="DefaultNumberPickerTheme" parent="AppTheme">
+        <item name="colorControlNormal">@android:color/transparent</item>
+        <item name="android:fontFamily">@font/product_sans_regular</item>
+        <item name="android:textSize">@dimen/_16sdp</item>
+
     </style>
 
     <!--Futura style-->
@@ -197,7 +212,7 @@
 
 
     <!--ProductBold Style-->
-    <style name="ExtraProductBoldStyle">
+    <style name="ExtraSmallProductBoldStyle">
         <item name="android:textSize">@dimen/_11sdp</item>
         <item name="android:fontFamily">@font/product_sans_bold</item>
     </style>
@@ -215,6 +230,13 @@
         <item name="android:textSize">@dimen/_16sdp</item>
         <item name="android:fontFamily">@font/product_sans_bold</item>
     </style>
+
+    <style name="ExtralargeProductBoldtyle">
+        <item name="android:textSize">@dimen/_20sdp</item>
+        <item name="android:fontFamily">@font/product_sans_bold</item>
+    </style>
+
+
 
     <!--ProductRegular Style-->
     <style name="ExtraProductRegularStyle">

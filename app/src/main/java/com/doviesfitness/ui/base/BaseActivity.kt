@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
+import android.os.Bundle
 import android.os.SystemClock
 import android.provider.MediaStore
 import android.support.v4.app.Fragment
@@ -13,6 +14,9 @@ import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.inputmethod.InputMethodManager
+import com.doviesfitness.Doviesfitness
+import com.doviesfitness.data.AppDataManager
+import com.doviesfitness.ui.authentication.signup.dialog.ImagePickerDialog
 import com.doviesfitness.utils.Constant
 import com.doviesfitness.utils.ProgressDialog
 import java.io.File
@@ -20,7 +24,9 @@ import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
 
-open class BaseActivity : AppCompatActivity() {
+open class BaseActivity : AppCompatActivity() , ImagePickerDialog.ImagePickerCallBack {
+
+
     private var tmpUri: Uri? = null
     val TAG: String = BaseActivity::class.java.name
     private var progressDialog: ProgressDialog? = null
@@ -29,8 +35,8 @@ open class BaseActivity : AppCompatActivity() {
     private var mLastClickTime: Long = 0
 
 
-    override fun setContentView(layoutResID: Int) {
-        super.setContentView(layoutResID)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         progressDialog = ProgressDialog(this)
     }
 
@@ -42,11 +48,9 @@ open class BaseActivity : AppCompatActivity() {
         return activity
     }
 
-   /* fun getDataManager(): AppDataManager {
-        *//* dataManager = AppDataManager.getAppDataManager(activity)
-         return dataManager as AppDataManager*//*
-        return Livewire.getDataManager()
-    }*/
+    fun getDataManager(): AppDataManager {
+        return Doviesfitness.getDataManager()
+    }
 
 
 
@@ -113,6 +117,9 @@ open class BaseActivity : AppCompatActivity() {
 
 
     fun getImagePickerDialog() {
+        ImagePickerDialog.newInstance(this).show(supportFragmentManager)
+
+
         val options = arrayOf<CharSequence>("Take Photo", "Choose from Gallery")
 
         val builder = AlertDialog.Builder(this@BaseActivity)
@@ -132,7 +139,6 @@ open class BaseActivity : AppCompatActivity() {
                     } catch (ex: IOException) {
                         Log.d(TAG, ex.message)
                     }
-
                     if (photoFile != null) {
                         tmpUri = FileProvider.getUriForFile(
                             this@BaseActivity,
@@ -149,7 +155,44 @@ open class BaseActivity : AppCompatActivity() {
                 startActivityForResult(intent, Constant.GALLERY)
             }
         }
-        builder.show()
+      //  builder.show()
+    }
+
+
+
+
+
+    override fun textOnClick(type: String) {
+        if (type.equals("Camera")){
+            val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            //***** Ensure that there's a camera activity to handle the intent ****//
+            if (takePictureIntent.resolveActivity(packageManager) != null) {
+                //** Create the File where the photo should go *****//
+                var photoFile: File? = null
+                try {
+                    photoFile = createImageFile()
+                } catch (ex: IOException) {
+                    Log.d(TAG, ex.message)
+                }
+                if (photoFile != null) {
+                    tmpUri = FileProvider.getUriForFile(
+                        this@BaseActivity,
+                        applicationContext.packageName + ".fileprovider",
+                        getTemporalFile(this@BaseActivity)
+                    )
+                    takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, tmpUri)
+                    startActivityForResult(takePictureIntent, Constant.CAMERA)
+                }
+            }
+        }else if (type.equals("Gallery")){
+            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            startActivityForResult(intent, Constant.GALLERY)
+
+        }else{
+
+        }
+
+
     }
 
 

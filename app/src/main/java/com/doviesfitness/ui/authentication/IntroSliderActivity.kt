@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.os.SystemClock
 import android.support.v4.view.PagerAdapter
 import android.support.v4.view.ViewPager
 import android.text.Html
@@ -26,6 +27,7 @@ class IntroSliderActivity : BaseActivity(), View.OnClickListener {
     private var introBullets: Array<TextView>? = null
     private var introBulletsLayout: LinearLayout? = null
     private var introSliderLayouts: IntArray? = null
+    private var mLastClickTime: Long = 0
     var currentPage = 0
     val NUM_PAGES = 4
     val DELAY_MS: Long = 2000//delay in milliseconds before task is to be executed
@@ -136,11 +138,23 @@ class IntroSliderActivity : BaseActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btn_login -> {
-               // intent = Intent(this, LoginActivity::class.java)
-               // startActivity(intent)
+                if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
+                    return
+                } else {
+                    mLastClickTime = SystemClock.elapsedRealtime()
+
+                }
+               intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
 
             }
             R.id.btn_signup -> {
+                if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
+                    return
+                } else {
+                    mLastClickTime = SystemClock.elapsedRealtime()
+
+                }
                 intent = Intent(this, SignupActivity::class.java)
                 startActivity(intent)
             }
@@ -148,6 +162,12 @@ class IntroSliderActivity : BaseActivity(), View.OnClickListener {
         }
 
     }
+
+    private fun preventDoubleClick() {
+
+
+    }
+
 
     inner class IntroScreenViewPagerAdapter : PagerAdapter() {
         override fun instantiateItem(container: ViewGroup, position: Int): Any {

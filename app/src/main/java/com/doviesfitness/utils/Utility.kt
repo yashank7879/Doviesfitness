@@ -27,7 +27,6 @@ class Utility {
             return json
         }
 
-
         var countryFlags = intArrayOf(
             R.drawable.flag_af,
             R.drawable.flag_al,

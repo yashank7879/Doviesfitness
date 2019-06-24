@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:background="@color/colorWhite"
+                android:layout_height="match_parent"
+                android:id="@+id/main_layout1"
+                tools:context=".ui.authentication.signup.CreateUserActivity">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/_190sdp">
+
+        <TextView
+                style="@style/largeProductBoldtyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/create_username"
+                android:textColor="@color/colorBlack"/>
+
+        <TextView
+                style="@style/SmallProductRegularStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="@string/pick_a_username_for_your_account_you_can_always_change_it_later"
+                android:textColor="@color/colorLightBlack"/>
+
+        <EditText
+                android:id="@+id/et_username"
+                style="@style/ExtraProductRegularStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_bg"
+                android:hint="@string/username"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+                android:singleLine="true"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:inputType="textPersonName"
+                android:textColorHint="@color/colorGray3"
+                android:textColor="@color/colorGray3"
+                android:padding="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"/>
+
+        <TextView
+                android:id="@+id/tv_username_status"
+                style="@style/ExtraProductRegularStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_9sdp"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_minus2sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:visibility="gone"
+                android:textColor="@color/colorOrange"
+        />
+
+    </LinearLayout>
+
+    <ImageView
+            android:id="@+id/iv_next_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/next_btn_selector"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="20dp"
+            android:scaleType="center"
+            android:tint="@color/colorBlack"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:textAllCaps="false"
+            android:layout_marginTop="80dp"
+            android:layout_marginRight="15dp"
+            android:layout_alignParentRight="true"/>
+
+</RelativeLayout>

@@ -85,8 +85,9 @@ class CountryAdapter(
             R.id.cvCountryLayout -> {
                 val resultIntent = Intent()
                 resultIntent.putExtra("country_flag", mCountries?.get(adapterPosition)?.flag)
-                resultIntent.putExtra("country_code", mCountries?.get(adapterPosition)?.phone_code)
+                resultIntent.putExtra("country_phone_code", mCountries?.get(adapterPosition)?.phone_code)
                 resultIntent.putExtra("country_Name", mCountries?.get(adapterPosition)?.country_name)
+                resultIntent.putExtra("country_code", mCountries?.get(adapterPosition)?.code)
                 (mContext as Activity).setResult(Activity.RESULT_OK, resultIntent)
                 (mContext as Activity).finish()
                 }

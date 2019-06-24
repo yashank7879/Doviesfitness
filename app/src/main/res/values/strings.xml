@@ -22,10 +22,12 @@
 
     <!--signup Validation-->
     <string name="please_enter_your_full_name">Please enter your full name.</string>
+    <string name="please_enter_your_user_name">Please enter your username.</string>
     <string name="please_enter_email_address">Please enter your email address.</string>
     <string name="please_enter_valid_email_address">Please enter a valid email address.</string>
 
     <string name="please_enter_a_password">Please enter a password.</string>
+    <string name="something_wrong">Something went wrong please try again later</string>
     <string name="re_enter_password">Re-enter password.</string>
     <string name="pass_does_not_match_the_confirm_pass">Password does not match the confirm password.</string>
     <string name="please_select_your_country">Please select your country.</string>
@@ -37,4 +39,46 @@
     <string name="what_s_your_gender">WHAT\'S YOUR GENDER?</string>
     <string name="female">FEMALE</string>
     <string name="male">MALE</string>
+    <string name="done">Done</string>
+
+    <!--Height and Weight-->
+    <string name="skip">skip</string>
+    <string name="how_tall_are_you">HOW TALL ARE YOU?</string>
+    <string name="ft">FT</string>
+    <string name="todo">TODO</string>
+    <string name="_0">0</string>
+    <string name="in">IN</string>
+    <string name="cm">CM</string>
+    <string name="kg">KG</string>
+    <string name="lbs">LBS</string>
+    <string name="what_s_your_weight">WHAT\'S YOUR WEIGHT</string>
+
+
+    <string name="create_username">CREATE USERNAME</string>
+    <string name="pick_a_username_for_your_account_you_can_always_change_it_later">Pick a username for your account, You
+        can always change it later.
+    </string>
+    <string name="username">Username</string>
+    <string name="add_profile_photo">ADD PROFILE PHOTO</string>
+    <string name="add_a_profile_photo_so_that_your_friend_know_it_s_your">Add a profile photo so that your friend know
+        it\'s you.
+    </string>
+    <string name="welcome_to_doviesfitness">WELCOME TO DOVIESFITNESS,</string>
+    <string name="yasha">YASHA</string>
+    <string name="time_to_create_and_share_your">Time to create and share your</string>
+    <string name="help_and_motivate_you">HELP AND MOTIVATE YOU.</string>
+    <string name="are_here_to_inspire">ARE HERE TO INSPIRE,</string>
+    <string name="always_remenber_we">ALWAYS REMENBER WE</string>
+    <string name="workout_with_friends_and_family">workout with friends and family.</string>
+    <string name="under_devlopment_mode">Under Devlopment mode</string>
+
+
+    <!--Login String-->
+    <string name="sign_in">Sign in</string>
+    <string name="or_sign_in_with">or sign in with:</string>
+    <string name="don_t_have_an_account">Don\'t have an account ?</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="firstNameLengthError">first name is too short (minimum 3 characters)</string>
+    <string name="passEmptyError">Please enter password</string>
+    <string name="firstNameEmptyError">Please enter User name</string>
 </resources>

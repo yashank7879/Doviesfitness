@@ -13,16 +13,23 @@
     <color name="colorGray5">#8f8e93</color>
     <color name="colorGray6">#828282</color>
     <color name="colorGray7">#c7c7c7</color>
+    <color name="colorGray8">#b5b5b5</color>
+    <color name="colorGray9">#ededed</color>
 
 
 
     <color name="colorBlack">#000000</color>
     <color name="colorBlack1">#000000</color>
+    <color name="colorBlack2">#242424</color>
+    <color name="colorBlack3">#2d2d2d</color>
+    <color name="colorLightBlack">#1b1b1b</color>
+
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorWhite1">#fafafa</color>
     <color name="colorWhite2">#f2f2f4</color>
 
     <color name="colorOrange">#fc5932</color>
+    <color name="colorGreen">#00C471</color>
 
     <!-- dots inactive colors -->
     <color name="intro_bullet_inactive">#59FFFFFF</color>

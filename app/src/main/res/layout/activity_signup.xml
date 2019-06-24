@@ -100,6 +100,7 @@
                     style="@style/ExtraProductRegularStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
                     android:background="@drawable/edit_text_bg"
                     android:hint="@string/full_name"
                     android:singleLine="true"
